@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package wsdarts;
+
+message Person {
+    string name = 1;
+    repeated Image images = 2;
+}
+
+message Image {
+    string name = 1;
+    bytes contents = 2;
+}
