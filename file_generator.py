@@ -7,11 +7,12 @@ import argparse
 parser = argparse.ArgumentParser(description = 'Face Recognition using Triplet Loss')
 parser.add_argument('--image-dir', default = './CASIA-maxpy-clean/', type = str,
                     help = 'path to image directory')
-parser.add_argument('--destination-dir', default = '/lustre2/0/wsdarts/datasets/CASIA', type = str,
+parser.add_argument('--destination-dir', default = '/lustre2/0/wsdarts/datasets/CASIA/', type = str,
                     help = 'path to destination directory, where .pid files will be placed')                    
 args    = parser.parse_args()
 dir_path = args.image_dir
 destination_path = args.destination_dir
+print(destination_path)
 
 for person_dir in os.listdir(dir_path):
     print(person_dir)
@@ -29,7 +30,8 @@ for person_dir in os.listdir(dir_path):
                 image.name = person_image
                 file.close()
             
-        person_filename = Path(dir_path + person.name + ".pid")
+        person_filename = Path(destination_path + person.name + ".pid")
+        print(person_filename)
         out_file = open(person_filename, "wb")
         out_file.write(person.SerializeToString())
         out_file.close()

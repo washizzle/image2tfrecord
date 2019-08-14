@@ -1,0 +1,7 @@
+#!/bin/bash
+#SBATCH -p gpu
+#SBATCH -t 100:00:00
+bash $HOME/miniconda3/etc/profile.d/conda.sh
+source activate pytorch11
+python file_generator.py --image-dir=/nfs/home4/mhouben/facenet_pytorch/datasets/vggface2_train/aligned/ --destination-dir=/lustre2/0/wsdarts/datasets/vggface2_train/
+source deactivate
