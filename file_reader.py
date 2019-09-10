@@ -2,6 +2,7 @@ import image_pb2
 import sys
 import os
 from pathlib import Path
+from skimage import io
 
 dir_path = "./images/"
 
@@ -30,6 +31,8 @@ def getImage(person, image):
 #        ListImageIds(person)
 
 x = getImage("Henk","0004_01.jpg")
-f = open(Path(dir_path+"maurice1.jpg"),"wb")
-f.write(x.contents)
-f.close()
+anc_img  = io.imread(x, plugin='imageio')
+print(anc_img.shape, anc_img.dtype)
+#f = open(Path(dir_path+"maurice1.jpg"),"wb")
+#f.write(x.contents)
+#f.close()
