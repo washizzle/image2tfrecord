@@ -5,9 +5,9 @@ from pathlib import Path
 import argparse
 
 parser = argparse.ArgumentParser(description = 'Face Recognition using Triplet Loss')
-parser.add_argument('--image-dir', default = './CASIA-maxpy-clean/', type = str,
+parser.add_argument('--image-dir', default = '/scratch/nodespecific/int1/mhouben/cifar_sorted_by_label/train/', type = str,
                     help = 'path to image directory')
-parser.add_argument('--destination-dir', default = '/lustre2/0/wsdarts/datasets/CASIA/', type = str,
+parser.add_argument('--destination-dir', default = '/lustre2/0/wsdarts/datasets/cifar/train/', type = str,
                     help = 'path to destination directory, where .pid files will be placed')                    
 args    = parser.parse_args()
 dir_path = args.image_dir
